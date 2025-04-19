@@ -75,6 +75,16 @@
     stateVersion = "24.05"; # Please read the comment before changing.
   };
 
+  programs = {
+    starship = {
+      enable = true;
+    };
+
+    zsh = {
+      # enable = true;
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

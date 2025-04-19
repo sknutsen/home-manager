@@ -14,6 +14,19 @@
         vimAlias = true;
         package = pkgs.neovim-unwrapped;
 
+        options = {
+          shiftwidth = 2;
+          tabstop = 2;
+        };
+
+        autocomplete = {
+          blink-cmp = {
+            enable = true;
+            setupOpts.signature.enabled = true;
+            setupOpts.cmdline.keymap.preset = "super-tab";
+          };
+        };
+
         useSystemClipboard = true;
 
         spellcheck = {
@@ -27,7 +40,7 @@
           lightbulb.enable = true;
           lspsaga.enable = false;
           trouble.enable = true;
-          lspSignature.enable = true;
+          lspSignature.enable = false;
           otter-nvim.enable = false;
           nvim-docs-view.enable = false;
         };
@@ -107,6 +120,16 @@
           };
         };
 
+        terminal = {
+          toggleterm = {
+            lazygit = {
+              enable = true;
+              package = null;
+              mappings.open = "<leader>lg";
+            };
+          };
+        };
+
         theme = {
           enable = true;
           name = "catppuccin";
@@ -122,7 +145,7 @@
 
         autopairs.nvim-autopairs.enable = true;
 
-        autocomplete.nvim-cmp.enable = true;
+        # autocomplete.nvim-cmp.enable = true;
         snippets.luasnip.enable = true;
 
         telescope = {
