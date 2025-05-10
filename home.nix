@@ -76,6 +76,10 @@
   };
 
   programs = {
+    floorp = {
+      enable = true;
+    };
+
     starship = {
       enable = true;
     };
