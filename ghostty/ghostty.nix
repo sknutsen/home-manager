@@ -8,8 +8,10 @@
     enable = true;
     enableZshIntegration = true;
 
-    settings = {};
+    settings = {
+      font-size = 14;
+    };
 
-    themes = [];
+    # themes = [];
   };
 }
