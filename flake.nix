@@ -39,7 +39,7 @@
       modules = [
         inputs.nvf.homeManagerModules.default
 
-        ./nvim/ghostty.nix
+        ./ghostty/ghostty.nix
         ./nvim/nvim.nix
         ./home.nix
       ];
