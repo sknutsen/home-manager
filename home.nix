@@ -28,6 +28,7 @@
       # (pkgs.writeShellScriptBin "my-hello" ''
       #   echo "Hello, ${config.home.username}!"
       # '')
+      thunderbird
       zsh
     ];
 
@@ -64,6 +65,8 @@
     #
     sessionVariables = {
       EDITOR = "nvim";
+      NH_OS_FLAKE = "/home/zdk/.nixconf";
+      NH_DARWIN_FLAKE = "";
     };
 
     # This value determines the Home Manager release that your configuration is
@@ -77,10 +80,6 @@
   };
 
   programs = {
-    floorp = {
-      enable = true;
-    };
-
     librewolf = {
       enable = true;
     };
