@@ -1,7 +1,7 @@
 {
   imports = [
     ./zen.nix
-    ./ploicies.nix
+    ./policies.nix
     ./preferences.nix
     ./extensions.nix
   ];
