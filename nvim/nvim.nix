@@ -10,7 +10,7 @@
     # most settings are documented in the appendix
     settings = {
       vim = {
-        viAlias = false;
+        viAlias = true;
         vimAlias = true;
         package = pkgs.neovim-unwrapped;
 
@@ -27,7 +27,10 @@
           };
         };
 
-        useSystemClipboard = true;
+        clipboard = {
+          enable = true;
+          registers = "unnamed,unnamedplus";
+        };
 
         spellcheck = {
           enable = true;
@@ -124,7 +127,6 @@
           toggleterm = {
             lazygit = {
               enable = true;
-              package = null;
               mappings.open = "<leader>lg";
             };
           };
