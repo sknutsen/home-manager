@@ -49,6 +49,7 @@
 
         ./ghostty
         ./nvim
+        ./zen-browser
         ./home.nix
       ];
 

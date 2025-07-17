@@ -65,8 +65,9 @@
     #
     sessionVariables = {
       EDITOR = "nvim";
-      NH_OS_FLAKE = "/home/zdk/.nixconf";
       NH_DARWIN_FLAKE = "";
+      NH_HOME_FLAKE = "/home/zdk/.config/home-manager";
+      NH_OS_FLAKE = "/home/zdk/.nixconf";
     };
 
     # This value determines the Home Manager release that your configuration is
@@ -85,10 +86,6 @@
     };
 
     starship = {
-      enable = true;
-    };
-
-    zen-browser = {
       enable = true;
     };
 
