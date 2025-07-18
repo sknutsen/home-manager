@@ -47,9 +47,13 @@
         inputs.nvf.homeManagerModules.default
         inputs.zen-browser.homeModules.twilight
 
+        ./comms
+        ./dev
         ./ghostty
+        ./media
         ./nvim
         ./zen-browser
+
         ./home.nix
       ];
 

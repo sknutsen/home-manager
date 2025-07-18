@@ -127,6 +127,7 @@
           toggleterm = {
             lazygit = {
               enable = true;
+              package = pkgs.lazygit;
               mappings.open = "<leader>lg";
             };
           };

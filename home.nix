@@ -4,9 +4,6 @@
   pkgs,
   ...
 }: {
-  # imports = [
-  # ./nvim/nvim.nix
-  # ];
   home = {
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
@@ -28,6 +25,7 @@
       # (pkgs.writeShellScriptBin "my-hello" ''
       #   echo "Hello, ${config.home.username}!"
       # '')
+      _1password-gui
       thunderbird
       zsh
     ];
@@ -87,10 +85,6 @@
 
     starship = {
       enable = true;
-    };
-
-    zsh = {
-      # enable = true;
     };
   };
 
