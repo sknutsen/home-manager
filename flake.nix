@@ -49,6 +49,7 @@
 
         ./comms
         ./dev
+        ./desktop
         ./ghostty
         ./media
         ./nvim

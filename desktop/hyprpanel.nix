@@ -5,18 +5,10 @@
   ...
 }: {
   programs.hyprpanel = {
+    enable = true;
     # Configure bar layouts for monitors.
     # See 'https://hyprpanel.com/configuration/panel.html'.
     # Default: null
-    layout = {
-      "bar.layouts" = {
-        "0" = {
-          left = ["dashboard" "workspaces"];
-          middle = ["media"];
-          right = ["volume" "systray" "notifications"];
-        };
-      };
-    };
 
     # Configure and theme almost all options from the GUI.
     # See 'https://hyprpanel.com/configuration/settings.html'.
@@ -41,6 +33,13 @@
       theme.font = {
         name = "CaskaydiaCove NF";
         size = "16px";
+      };
+      "bar.layouts" = {
+        "0" = {
+          left = ["dashboard" "workspaces"];
+          middle = ["media"];
+          right = ["volume" "systray" "notifications"];
+        };
       };
     };
   };
