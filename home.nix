@@ -4,6 +4,8 @@
   pkgs,
   ...
 }: {
+  nixpkgs.config.allowUnfree = true;
+
   home = {
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
@@ -26,6 +28,7 @@
       #   echo "Hello, ${config.home.username}!"
       # '')
       _1password-gui
+      lazygit
       thunderbird
       zsh
     ];
