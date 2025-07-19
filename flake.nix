@@ -34,32 +34,34 @@
     };
     # pkgs = nixpkgs.legacyPackages.${system};
   in {
-    homeConfigurations."zdk" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+    homeConfigurations = {
+      "zdk@pingu" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-      extraSpecialArgs = {
-        inherit inputs;
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [
+          inputs.nvf.homeManagerModules.default
+          inputs.zen-browser.homeModules.twilight
+
+          ./comms
+          ./dev
+          ./desktop
+          ./ghostty
+          ./media
+          ./nvim
+          ./zen-browser
+
+          ./users/zdk
+        ];
+
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
       };
-
-      # Specify your home configuration modules here, for example,
-      # the path to your home.nix.
-      modules = [
-        inputs.nvf.homeManagerModules.default
-        inputs.zen-browser.homeModules.twilight
-
-        ./comms
-        ./dev
-        ./desktop
-        ./ghostty
-        ./media
-        ./nvim
-        ./zen-browser
-
-        ./home.nix
-      ];
-
-      # Optionally use extraSpecialArgs
-      # to pass through arguments to home.nix
     };
   };
 }
