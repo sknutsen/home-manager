@@ -44,5 +44,7 @@ in
       )
 
       userHMConfig
+
+      ../modules/nvim
     ];
   }
