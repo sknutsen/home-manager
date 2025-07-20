@@ -12,7 +12,7 @@
   isWSL = wsl;
   isLinux = !isDarwin && !isWSL;
 
-  userHMConfig = ../users/${user}/home.nix;
+  userHMConfig = ../users/${user};
   home-manager =
     if isDarwin
     then inputs.home-manager.darwinModules
@@ -20,10 +20,14 @@
 
   pkgs = import nixpkgs {
     inherit system;
+    config = {
+      allowUnfree = true;
+    };
+    overlays = overlays;
   };
 in
   home-manager rec {
-    inherit system pkgs;
+    inherit pkgs;
 
     extraSpecialArgs = {
       inherit pkgs;
@@ -35,6 +39,8 @@ in
       inputs.nvf.homeManagerModules.default
       inputs.zen-browser.homeModules.twilight
 
+      userHMConfig
+
       ../comms
       ../dev
       ../desktop
@@ -42,7 +48,5 @@ in
       ../media
       ../nvim
       ../zen-browser
-
-      userHMConfig
     ];
   }

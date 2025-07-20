@@ -2,9 +2,17 @@
   config,
   inputs,
   pkgs,
+  isWSL,
+  isLinux,
+  isDarwin,
   ...
 }: {
-  nixpkgs.config.allowUnfree = true;
+  imports =
+    if !isWSL
+    then [
+      ./gui.nix
+    ]
+    else [];
 
   home = {
     # Home Manager needs a bit of information about you and the paths it should
@@ -27,9 +35,7 @@
       # (pkgs.writeShellScriptBin "my-hello" ''
       #   echo "Hello, ${config.home.username}!"
       # '')
-      _1password-gui
       lazygit
-      thunderbird
       zsh
     ];
 
@@ -50,20 +56,7 @@
 
     # Home Manager can also manage your environment variables through
     # 'home.sessionVariables'. These will be explicitly sourced when using a
-    # shell provided by Home Manager. If you don't want to manage your shell
-    # through Home Manager then you have to manually source 'hm-session-vars.sh'
-    # located at either
-    #
-    #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  /etc/profiles/per-user/zdk/etc/profile.d/hm-session-vars.sh
-    #
+    # shell provided by Home Manager.
     sessionVariables = {
       EDITOR = "nvim";
       NH_DARWIN_FLAKE = "";
@@ -82,10 +75,6 @@
   };
 
   programs = {
-    librewolf = {
-      enable = true;
-    };
-
     starship = {
       enable = true;
     };

@@ -28,8 +28,9 @@
     home-manager,
     ...
   } @ inputs: let
+    overlays = [];
     mkHome = import ./lib/mkHome.nix {
-      inherit inputs;
+      inherit nixpkgs overlays inputs;
     };
     # system = "x86_64-linux";
     # pkgs = import nixpkgs {

@@ -2,10 +2,11 @@
   config,
   inputs,
   pkgs,
+  isLinux,
   ...
 }: {
   programs.hyprpanel = {
-    enable = true;
+    enable = isLinux;
     # Configure bar layouts for monitors.
     # See 'https://hyprpanel.com/configuration/panel.html'.
     # Default: null
