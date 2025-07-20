@@ -37,16 +37,12 @@ in
 
     modules = [
       inputs.nvf.homeManagerModules.default
-      inputs.zen-browser.homeModules.twilight
+      (
+        if !isWSL
+        then inputs.zen-browser.homeModules.twilight
+        else {}
+      )
 
       userHMConfig
-
-      ../comms
-      ../dev
-      ../desktop
-      ../ghostty
-      ../media
-      ../nvim
-      ../zen-browser
     ];
   }
