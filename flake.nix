@@ -28,39 +28,51 @@
     home-manager,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
+    mkHome = import ./lib/mkHome.nix {
+      inherit inputs;
     };
-    # pkgs = nixpkgs.legacyPackages.${system};
+    # system = "x86_64-linux";
+    # pkgs = import nixpkgs {
+    #   inherit system;
+    # };
   in {
     homeConfigurations = {
-      "zdk@pingu" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+      "zdk@pingu" = mkHome "pingu" {
+        system = "x86_64-linux";
+        user = "zdk";
+      };
+      # "zdk@pingu" = home-manager.lib.homeManagerConfiguration {
+      #   inherit pkgs;
+      #
+      #   extraSpecialArgs = {
+      #     inherit inputs;
+      #   };
+      #
+      #   # Specify your home configuration modules here, for example,
+      #   # the path to your home.nix.
+      #   modules = [
+      #     inputs.nvf.homeManagerModules.default
+      #     inputs.zen-browser.homeModules.twilight
+      #
+      #     ./comms
+      #     ./dev
+      #     ./desktop
+      #     ./ghostty
+      #     ./media
+      #     ./nvim
+      #     ./zen-browser
+      #
+      #     ./users/zdk
+      #   ];
+      #
+      #   # Optionally use extraSpecialArgs
+      #   # to pass through arguments to home.nix
+      # };
 
-        extraSpecialArgs = {
-          inherit inputs;
-        };
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-          inputs.nvf.homeManagerModules.default
-          inputs.zen-browser.homeModules.twilight
-
-          ./comms
-          ./dev
-          ./desktop
-          ./ghostty
-          ./media
-          ./nvim
-          ./zen-browser
-
-          ./users/zdk
-        ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+      "zdk@remorse" = mkHome "remorse" {
+        system = "aarch64-darwin";
+        user = "zdk";
+        isDarwin = true;
       };
     };
   };
